@@ -2,6 +2,7 @@ package com.fraczekkrzysztof.springbootbootstrap.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,5 +35,9 @@ public class TaskService {
 	
 	public void delete(int id) {
 		taskRepository.deleteById(id);
+	}
+
+	public Task findTask(int id) {
+		return taskRepository.findById(id).orElse(null);
 	}
 }
